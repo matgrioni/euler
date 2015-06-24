@@ -32,6 +32,8 @@ print("An internal 1000 digit number is assumed. This program finds the n")
 print("adjacent digits in the number with the largest product")
 n = int(raw_input("Enter n > "))
 
+start = time.time()
+
 # Values to start off the loop iteration.
 first = internal[0]
 m = reduce(operator.mul, listToInt(internal[:n]), 1)
@@ -48,4 +50,7 @@ for i in range(1, len(internal)-n+1):
 
     first = internal[i]
 
+end = time.time()
+
 print("Result: {}".format(m))
+print("{} s".format(end - start))
