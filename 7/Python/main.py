@@ -5,6 +5,8 @@ import time
 print("This program finds the nth prime number")
 n = int(raw_input("Enter n > "))
 
+start = time.time()
+
 count = 0
 current = 1
 while count < n:
@@ -19,5 +21,7 @@ while count < n:
     if prime:
         count += 1
 
+end = time.time()
 
 print("Result: {}".format(current))
+print("{} s".format(end - start))
