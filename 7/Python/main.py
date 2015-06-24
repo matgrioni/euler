@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import time
+import math
 
 print("This program finds the nth prime number")
 n = int(raw_input("Enter n > "))
@@ -13,7 +14,7 @@ while count < n:
     current += 1
 
     prime = True
-    for i in range(2, current/2 + 1):
+    for i in range(2, int(math.sqrt(current)) + 1):
         if current % i == 0:
             prime = False
             break
