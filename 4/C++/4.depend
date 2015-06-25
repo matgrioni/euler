@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1426827101 source:/home/matgrioni/Documents/C++/4/main.cpp
+	<iostream>
+	<math.h>
+
