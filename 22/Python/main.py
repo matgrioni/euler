@@ -14,6 +14,8 @@ def alphabetical(name1, name2):
         elif c1 > c2:
             return False
 
+        index += 1
+
     return len(name1) < len(name2)
 
 def sort(names):
@@ -29,8 +31,6 @@ def sort(names):
                 names.remove(next)
                 names.insert(i, next)
                 cur = next
-
-    print(names)
 
 print("Finds sum of name scores in provided text file")
 fn = raw_input("Enter filename > ")
