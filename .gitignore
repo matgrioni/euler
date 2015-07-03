@@ -1,9 +1,2 @@
-# Ignore everything then unignore extensions and directories
-*
-!*.*
-!*/
-
 # Ignore compiled haskell and python files
-*.o
-*.hi
 *.pyc
