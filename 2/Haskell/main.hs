@@ -6,7 +6,7 @@
  - terms of the Fibonacci sequence less than n, which is input by the user.
  - DOES NOT WORK.
  -
- - A little test to see how branching in git works.
+ - A little test to see how branching in git works. Another small change.
  -}
 
 module Main where
