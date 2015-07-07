@@ -4,7 +4,9 @@
  -
  - Solution to Project Euler problem 2 using Haskell. Sums all even valued
  - terms of the Fibonacci sequence less than n, which is input by the user.
- - DOES NOT WORK
+ - DOES NOT WORK.
+ -
+ - A little test to see how branching in git works.
  -}
 
 module Main where
