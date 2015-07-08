@@ -7,11 +7,17 @@
 
 module Main where
 
+sqrt' :: Integer -> Integer
+sqrt' n
+    | n == 1    = 1
+    | otherwise = (k + (n-1) `div` k) `div` 2
+    where k = sqrt'(n-1)
+
 isPrime :: Integer -> Bool
 isPrime n = length (factors n) == 0
 
 factors :: Integer -> [Integer]
-factors n = filter ((== 0) . (n `mod`)) [2..n `quot` 2]
+factors n = filter ((== 0) . (n `mod`)) [2..sqrt' n]
 
 largestPrimeFactor :: Integer -> Integer
 largestPrimeFactor n = last $ filter isPrime $ factors n
