@@ -41,8 +41,15 @@ m = reduce(operator.mul, listToInt(internal[:n]), 1)
 # Loop goes through the entire string gettting consecutive substrings of
 # length n.
 for i in range(1, len(internal)-n+1):
+    # If the last digit of the new substring is greater than the first
+    # digit of the prior substring, this has a chance of being a new largest
+    # solution.
+    #
+    # eg. (1234)5345 --> 1(2345)345, 234 are in both strings but the first and
+    # last are what matter.
     last = internal[i+n-1]
     if last > first:
+        # Foldl the substring to get the product
         prod = reduce(operator.mul, listToInt(internal[i:i+n]), 1)
         
         if prod > m:
