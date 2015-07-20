@@ -2,39 +2,30 @@
 
 import time
 
-# Returns a string digits long of the numbers after the decimal
-# point in 1/n.
-def getDigits(n, digits):
-    res = ""
+# Using wikipedia there is a property of repeating decimals that for 1/k
+# the period is <= k - 1. So if we were to divide 1/k long division style,
+# the numbers would repeat once again if the remainder of one of the operations
+# were 1. Returns the length of the cycle or 0 if there is no repetition.
+def cycle(n):
+    for i in range(1, n):
+        if 10**i % n == 1:
+            return i
 
-    top = 10
-    for i in range(digits):
-        digit = top / n
-        res += str(digit)
-        top = (top - (digit * n)) * 10
-
-    return res
+    return 0
 
 print("Finds x < n for which 1/x has the longest repeating sequence")
 n = int(raw_input("Enter n > "))
-digits = int(raw_input("Digit check > "))
 
 start = time.time()
 
-length = 0
+maxCycle = 0
 res = 0
-for i in range(2, n):
-    decimals = getDigits(i, digits)
 
-    for s in range(digits):
-        for l in range(1, digits + 1 - s):
-            subs = [decimals[idx:idx+l] for idx in range(s, digits - l + 1, l)]
-            repeat = len(set(subs)) == 1
-
-            if repeat and l > length:
-                length = l
-                res = i
-                break
+for i in range(1, n + 1):
+    c  = cycle(i)
+    if c > maxCycle:
+        maxCycle = c
+        res = i
 
 end = time.time()
 
