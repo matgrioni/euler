@@ -28,10 +28,25 @@ def reverse(n):
     if n < 10:
         return n
     else:
-        magnitude = math.log10(n)
+        magnitude = int(math.log10(n))
 
         rem = n % 10
         n /= 10
 
+        return rem * 10 ** magnitude + reverse(n)
+
 print("Finds the sum of all double-base palindromes less than n")
 n = int(raw_input("Enter n > "))
+
+start = time.time()
+
+res = 0
+for i in range(1, n):
+    binary = dtob(i)
+    if i == reverse(i) and binary == reverse(binary):
+        res += i
+
+end = time.time()
+
+print("Result: {}".format(res))
+print("{} s".format(end - start))
