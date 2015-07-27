@@ -7,20 +7,14 @@
 
 module Main where
 
-sqrt' :: Integer -> Integer
-sqrt' n
-    | n == 1    = 1
-    | otherwise = (k + (n-1) `div` k) `div` 2
-    where k = sqrt'(n-1)
-
-isPrime :: Integer -> Bool
-isPrime n = length (factors n) == 0
+prime :: Integer -> Bool
+prime n = null [x | x <- [2..floor . sqrt . fromIntegral $ n], n `mod` x == 0]
 
 factors :: Integer -> [Integer]
-factors n = filter ((== 0) . (n `mod`)) [2..sqrt' n]
+factors n = [x | x <- reverse [2..floor . sqrt . fromIntegral $ n], n `mod` x == 0]
 
 largestPrimeFactor :: Integer -> Integer
-largestPrimeFactor n = last $ filter isPrime $ factors n
+largestPrimeFactor n = head $ filter prime $ factors n
 
 main = do
     putStrLn "Finds the largest prime factor of n"
