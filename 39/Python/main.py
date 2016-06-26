@@ -11,8 +11,8 @@ start = time.time()
 # Initialize counter array
 counts = [0] * p
 for a in range(p):
-    for b in range(p):
-        for c in range(p):
+    for b in range(p - a):
+        for c in range(p - b - a):
             if a * a + b * b == c * c and a + b + c < p:
                 counts[a + b + c] += 1
 
