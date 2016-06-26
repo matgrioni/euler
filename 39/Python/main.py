@@ -1,26 +1,22 @@
 #!/usr/bin/python
 
 import time
+import math
 
-print("Finds the amount of right triangles with integral sides <= n")
-n = int(raw_input("Enter n > "))
+print("Finds the maximum number of pythagorean triplets with a given perimeter <= p")
+p = int(raw_input("Enter p > "))
 
 start = time.time()
 
-count = 0
-m = 0
-res = 0
-for p in range(3, n+1):
-    for a in range(1, p):
-        for b in range(1, p-a+1):
-            for c in range(1, p-a-b+1):
-                if a * a + b * b == c * c and a + b + c == p:
-                    count += 1
+# Initialize counter array
+counts = [0] * p
+for a in range(p):
+    for b in range(p):
+        for c in range(p):
+            if a * a + b * b == c * c and a + b + c < p:
+                counts[a + b + c] += 1
 
-    if count > m:
-        m = count
-        res = p
-
+res = counts.index(max(counts))
 end = time.time()
 
 print("Result: {}".format(res))
