@@ -9,12 +9,17 @@ p = int(raw_input("Enter p > "))
 start = time.time()
 
 # Initialize counter array
-counts = [0] * p
+counts = [0] * (p + 1)
+
 for a in range(p):
     for b in range(p - a):
-        for c in range(p - b - a):
-            if a * a + b * b == c * c and a + b + c < p:
-                counts[a + b + c] += 1
+        csq = a * a + b * b
+        c = math.sqrt(csq)
+
+        if c.is_integer():
+            ci = int(c)
+            if a + b + c <= p:
+                counts[a + b + ci] += 1
 
 res = counts.index(max(counts))
 end = time.time()
