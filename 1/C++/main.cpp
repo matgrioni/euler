@@ -18,8 +18,8 @@ using namespace std;
 */
 long sumMultiples(int limit) {
     long sum = 0;
-    for(int i = 0; i < limit; i++) {
-        if(i % 3 == 0 || i % 5 == 0)
+    for (int i = 0; i < limit; i++) {
+        if (i % 3 == 0 || i % 5 == 0)
             sum += i;
     }
 
@@ -32,5 +32,5 @@ int main() {
     cin >> upperLimit;
 
     long sum = sumMultiples(upperLimit);
-    cout << endl << "The sum is " << sum;
+    cout << "The sum is " << sum << endl;
 }
