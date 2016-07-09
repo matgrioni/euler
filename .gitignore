@@ -1,2 +1,11 @@
+# Ignore all files without extensions
+*
+!/**/
+!*.*
+
 # Ignore compiled haskell and python files
 *.pyc
+*.hi
+*.o
+*.out
+
